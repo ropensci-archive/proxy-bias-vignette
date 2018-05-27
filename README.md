@@ -1,3 +1,5 @@
+# TODO - TRANSLATE THIS INTO PYTHON
+
 # Ethical Machine Learning
 ## _A vignette designed to assist with spotting and preventing proxy bias._
 
