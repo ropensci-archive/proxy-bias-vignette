@@ -3,7 +3,7 @@ import random
 import zipcodes
 
 def generate_data():
-    zipcodes = [elem["zip_code"] for elem in zipcodes.list_all()]
+    some_zipcodes = [elem["zip_code"] for elem in zipcodes.list_all()][:10]
     df = pd.DataFrame()
     for _ in range(1000):
         tmp = {}
@@ -26,7 +26,7 @@ def generate_data():
         tmp["default"] = random.randint(1, 2)
         tmp["gender"] = random.randint(1, 2)
         tmp["status"] = random.randint(1, 3)
-        tmp["zipcode"] = random.choice(zipcodes)
+        tmp["zipcode"] = random.choice(some_zipcodes)
         tmp["race"] = random.randint(1, 4)
         df = df.append(tmp, ignore_index=True)
     return df
@@ -123,4 +123,4 @@ def map_data(df):
 if __name__ == '__main__':
     df = generate_data()
     df = map_data(df)
-    df.to_csv("loans.csv")
+    df.to_csv("loans.csv", index=False)
